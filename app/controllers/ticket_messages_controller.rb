@@ -12,10 +12,10 @@ class TicketMessagesController < ApplicationController
     @ticket_message.user = current_user
     if @ticket_message.save
       redirect_back(fallback_location: (request.referer || root_path),
-                    notice: "Your message was saved!")
+                    notice: "Su mensaje fue guardado!")
     else
       redirect_back(fallback_location: (request.referer || root_path),
-                    notice: "You message was not saved!")
+                    notice: "Su mensaje no pudo ser guardado!")
     end
   end
 
@@ -27,10 +27,10 @@ class TicketMessagesController < ApplicationController
     @ticket_message = @ticket.ticket_messages.find_by_id(params[:id])
     if @ticket_message.update(message_params)
       redirect_back(fallback_location: (request.referer || root_path),
-                    notice: "Your message was saved!")
+                    notice: "Su mensaje fue guardado!")
     else
       redirect_back(fallback_location: (request.referer || root_path),
-                    notice: "You message was not saved!")
+                    notice: "Su mensaje no pudo ser guardado!")
     end
   end
 

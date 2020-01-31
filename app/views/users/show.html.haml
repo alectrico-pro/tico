@@ -1,0 +1,4 @@
+.container
+  %h2= @user.email
+  %p= @user.role
+  = link_to "Editar", edit_user_path if current_user.admin?

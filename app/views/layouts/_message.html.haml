@@ -1,0 +1,5 @@
+.container
+  - flash.each do |name, msg|
+    .alert.alert-dismissible.alert-info{:id => "flash_#{name}"}
+      = msg
+      %button.close{"data-dismiss" => "alert", :type => "button"} ×

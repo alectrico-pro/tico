@@ -1,0 +1,31 @@
+.container
+  %h3
+    Asunto: #{@ticket.subject}
+  %hr/
+  %p
+    %strong
+      Ticket# #{@ticket.id}
+    = link_to "<i class='fa fa-pencil-square-o'></i>".html_safe, |
+      edit_ticket_path(@ticket), id: "edit-ticket"               |
+  %p
+    %strong Estado:
+    = @ticket.status
+  %p
+    Ténico: #{@ticket.technician.email}
+  %p
+    %strong Contenido:
+  %p.well= @ticket.content
+  %hr/
+  = link_to "Crear Mensaje", new_ticket_ticket_message_path(@ticket), remote: true, class: "btn btn-info"
+  %br/
+  %br/
+  - @ticket_messages.each do |message|
+    %div{:class => "panel panel-#{panel_color(message.user, @ticket.technician)}"}
+      .panel-heading
+        %p
+          Autor del Mensaje: #{message.user.email}
+          - if message.user == current_user
+            = link_to "<i class='fa fa-pencil-square-o'></i>".html_safe,                           |
+              edit_ticket_ticket_message_path(@ticket, message), remote: true, class: "pull-right" |
+      .panel-body
+        %p= message.content

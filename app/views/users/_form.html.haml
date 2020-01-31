@@ -1,0 +1,17 @@
+= form_for @user, html: { class: 'form-horizontal' } do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error")
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.text_field :email, autofocus: true, class: 'form-control', placeholder: 'Ingrese email'
+  .form-group
+    %label.control-label Role
+    = f.select(:role, User.roles.keys)
+  .form-group
+    = f.password_field :password, class: 'form-control', placeholder: 'Deje en blanco si no quiere cambiar la password'
+  .form-group
+    = f.submit class: 'btn btn-primary', :value => 'Guardar'

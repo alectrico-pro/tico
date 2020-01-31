@@ -5,16 +5,16 @@ class Ticket < ApplicationRecord
   has_many :ticket_messages
 
   enum status: {
-    open: 0,
-    in_progress: 1,
-    pending: 2,
-    closed: 3
+    abierto: 0,
+    atendiendo: 1,
+    pendiente: 2,
+    cerrado: 3
   }
 
   validates :subject, presence: true
   validates :content, presence: true
 
-  scope :tickets_open, -> { where.not(status: :closed) }
-  scope :tickets_closed, -> { where(status: :closed) }
+  scope :tickets_open, -> { where.not(status: :cerrado) }
+  scope :tickets_closed, -> { where(status: :cerrado) }
 
 end

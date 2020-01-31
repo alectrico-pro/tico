@@ -5,11 +5,12 @@ class Ability
 
     if user.admin?
       can :manage, :all
-    elsif user.technician?
+    elsif user.tecnico?
+
       can :manage, Ticket
       can :read, :all
       can :update, TicketMessage do |message|
-        message.try(:technician) == user
+        message.try(:tecnico) == user
       end
     elsif user.client?
       can :read, Ticket, :client => user

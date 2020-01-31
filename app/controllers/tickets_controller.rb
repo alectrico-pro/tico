@@ -25,10 +25,10 @@ class TicketsController < ApplicationController
     @ticket.client = current_user
     @ticket.technician = User.get_technician[0]
     if @ticket.save
-      flash[:notice] = "Ticket was successfully created!"
+      flash[:notice] = "El ticket fue éxitosamente creado!"
       redirect_to @ticket
     else
-      flash[:alert] = "Ticket was not created!"
+      flash[:alert] = "No se pudo crear el ticket!"
       render :new
     end
   end
@@ -38,10 +38,10 @@ class TicketsController < ApplicationController
 
   def update
     if @ticket.update(ticket_params)
-      flash[:notice] = "Ticket was successfully updated!"
+      flash[:notice] = "El ticket se actualizó éxitosamente!"
       redirect_to @ticket
     else
-      flash[:alert] = "Ticket was not updated!"
+      flash[:alert] = "No se pudo actualizar el ticket!"
       render :edit
     end
   end

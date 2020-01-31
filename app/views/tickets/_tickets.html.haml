@@ -1,0 +1,16 @@
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Número de Ticket
+        %th Asunto
+        %th Estado
+        %th Técnico
+    %tbody
+      - tickets.each do |ticket|
+        %tr
+          %td= link_to ticket.id, ticket_path(ticket)
+          %td= ticket.subject
+          %td= ticket.status
+          %td
+            = ticket.technician.email

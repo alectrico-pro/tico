@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  enum role: [:client, :technician, :admin]
+  enum role: [:colaborador, :cliente, :tecnico, :admin]
 
   has_many :tickets
 
@@ -17,8 +17,8 @@ class User < ApplicationRecord
     end
   end
 
-  def self.get_technician
-    where(role: :technician).limit(1)
+  def self.get_tecnico
+    where(role: :tecnico).limit(1)
   end
 
   private

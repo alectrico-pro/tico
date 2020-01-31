@@ -1,0 +1,25 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Cambiar navigación
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} Versus
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        - if user_signed_in?
+          %li= link_to "Tickets", tickets_path
+          %li= link_to "+ Ticket", new_ticket_path
+          - if !current_user.cliente?
+            %li= link_to "Usuarios", users_path
+            %li= link_to "Cerrados", tickets_closed_path
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li= link_to current_user.email, get_path
+          %li= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete
+        - else
+          %li= link_to "Iniciar Sesión", new_user_session_path
+          %li= link_to "Crear Cuenta", new_user_registration_path
+    / /.nav-collapse

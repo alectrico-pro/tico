@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def create
     if @user.save
-      redirect_to @user, notice: "User was successfully created."
+      redirect_to @user, notice: "El usuario fue éxitosamente creado."
     else
       render :new
     end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
                               @user.update_without_password(user_params)
                            end
     if successfully_updated
-      redirect_to @user, notice: "User was successfully update."
+      redirect_to @user, notice: "El usuario fue éxitosamente actualizado."
     else
       render :edit
     end
