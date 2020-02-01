@@ -36,7 +36,7 @@ class TicketMessagesController < ApplicationController
 
   private
     def message_params
-      params.require(:ticket_message).permit(:user_id, :ticket_id, :content)
+      params.require(:ticket_message).permit(:user_id, :ticket_id, :contenido)
     end
 
     def find_message

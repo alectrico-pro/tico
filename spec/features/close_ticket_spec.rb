@@ -7,7 +7,7 @@ RSpec.feature "Close Ticket" do
     @techie.role = 'tecnico'
     @client1 = create(:user)
 
-    @ticket1 = Ticket.create(subject: "New ticket", content: "NT content here", cliente_id: @client1.id, tecnico_id: @techie.id)
+    @ticket1 = Ticket.create(asunto: "New ticket", contenido: "NT contenido here", cliente_id: @client1.id, tecnico_id: @techie.id)
   end
 
   scenario "A 'client' user closes their ticket" do

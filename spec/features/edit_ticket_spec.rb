@@ -7,7 +7,7 @@ RSpec.feature "Editar Ticket" do
     @techie.role = 'tecnico'
     @client1 = create(:user)
 
-    @ticket1 = Ticket.create(subject: "New ticket", content: "NT content here", cliente_id: @client1.id, tecnico_id: @techie.id)
+    @ticket1 = Ticket.create(asunto: "New ticket", contenido: "NT contenido here", cliente_id: @client1.id, tecnico_id: @techie.id)
   end
 
   scenario "A 'client' user updates their ticket" do
@@ -19,9 +19,9 @@ RSpec.feature "Editar Ticket" do
     click_link @ticket1.id
     find(:css, "#edit-ticket").click
 
-    fill_in "ticket_subject", with: "Creating new ticket"
+    fill_in "ticket_asunto", with: "Creating new ticket"
     select 'abierto', :from => 'ticket_status'
-    fill_in "ticket_content", with: "Content for the new ticket - Updated"
+    fill_in "ticket_contenido", with: "Content for the new ticket - Updated"
     click_button "Guardar"
 
     expect(page).to have_content("El ticket se actualizó éxitosamente!")
@@ -38,9 +38,9 @@ RSpec.feature "Editar Ticket" do
     click_link @ticket1.id
     find(:css, "#edit-ticket").click
 
-    fill_in "ticket_subject", with: "Creating new ticket"
+    fill_in "ticket_asunto", with: "Creating new ticket"
     select 'abierto', :from => 'ticket_status'
-    fill_in "ticket_content", with: "Content for the new ticket - Updated"
+    fill_in "ticket_contenido", with: "Content for the new ticket - Updated"
     click_button "Guardar"
 
     expect(page).to have_content("El ticket se actualizó éxitosamente!")
@@ -57,9 +57,9 @@ RSpec.feature "Editar Ticket" do
     click_link @ticket1.id
     find(:css, "#edit-ticket").click
 
-    fill_in "ticket_subject", with: "Creating new ticket"
+    fill_in "ticket_asunto", with: "Creating new ticket"
     select 'abierto', :from => 'ticket_status'
-    fill_in "ticket_content", with: "Content for the new ticket - Updated"
+    fill_in "ticket_contenido", with: "Content for the new ticket - Updated"
     click_button "Guardar"
 
     expect(page).to have_content("El ticket se actualizó éxitosamente!")

@@ -1,11 +1,11 @@
 #message-modal.modal.fade
   .modal-dialog
-    .modal-content
+    .modal-contenido
       %h4 Mensaje
       = form_for [@ticket, @ticket_message], remote: true do |f|
         .modal-body
           .form-group
-            = f.text_area :content, autofocus: true, placeholder: "Escriba el mensaje...", class: "form-control"
+            = f.text_area :contenido, autofocus: true, placeholder: "Escriba el mensaje...", class: "form-control"
         .modal-footer
           .form-group
             = f.submit "Guardar", class: "btn btn-primary btn-sm pull-right"

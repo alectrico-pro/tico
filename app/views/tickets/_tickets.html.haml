@@ -10,7 +10,7 @@
       - tickets.each do |ticket|
         %tr
           %td= link_to ticket.id, ticket_path(ticket)
-          %td= ticket.subject
+          %td= ticket.asunto
           %td= ticket.status
           %td
             = ticket.tecnico.email

@@ -9,8 +9,8 @@ RSpec.feature "Show Tickets List" do
     @client1.role = 'cliente'
     @client2 = create(:user)
     @client2.role = 'cliente'
-    @ticket1 = Ticket.create(subject: "New ticket", content: "NT content here", cliente_id: @client1.id, tecnico_id: @techie.id)
-    @ticket2 = Ticket.create(subject: "U2 New ticket", content: "U2 NT content here", cliente_id: @client2.id, tecnico_id: @techie.id)
+    @ticket1 = Ticket.create(asunto: "New ticket", contenido: "NT contenido here", cliente_id: @client1.id, tecnico_id: @techie.id)
+    @ticket2 = Ticket.create(asunto: "U2 New ticket", contenido: "U2 NT contenido here", cliente_id: @client2.id, tecnico_id: @techie.id)
   end
 
   scenario "client can only see their tickets" do

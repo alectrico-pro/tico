@@ -12,8 +12,8 @@ class Ticket < ApplicationRecord
     cerrado: 3
   }
 
-  validates :subject, presence: true
-  validates :content, presence: true
+  validates :asunto, presence: true
+  validates :contenido, presence: true
 
   scope :tickets_abierto, -> { where.not(status: :cerrado) }
   scope :tickets_cerrado, -> { where(status: :cerrado) }

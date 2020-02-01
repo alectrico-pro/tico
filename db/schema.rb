@@ -18,20 +18,20 @@ ActiveRecord::Schema.define(version: 20170906154715) do
   create_table "ticket_messages", force: :cascade do |t|
     t.integer "user_id"
     t.integer "ticket_id"
-    t.text "content"
+    t.text "contenido"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.string "subject"
+    t.string "asunto"
+    t.text "contenido"
     t.integer "status", default: 0
     t.integer "cliente_id"
     t.integer "tecnico_id"
     t.integer "colaborador_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "content"
   end
 
   create_table "users", force: :cascade do |t|

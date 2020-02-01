@@ -11,9 +11,9 @@ RSpec.feature "Create Ticket" do
 
     click_link "+ Ticket"
 
-    fill_in "ticket_subject", with: "Creating new ticket"
+    fill_in "ticket_asunto", with: "Creating new ticket"
     select 'abierto', :from => 'ticket_status'
-    fill_in "ticket_content", with: "Content for the new ticket"
+    fill_in "ticket_contenido", with: "Content for the new ticket"
     click_button "Guardar"
 
     expect(page).to have_content("El ticket fue éxitosamente creado!")

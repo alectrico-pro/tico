@@ -1,6 +1,6 @@
 .container
   %h3
-    Asunto: #{@ticket.subject}
+    Asunto: #{@ticket.asunto}
   %hr/
   %p
     %strong
@@ -14,7 +14,7 @@
     Técnico: #{@ticket.tecnico.email}
   %p
     %strong Contenido:
-  %p.well= @ticket.content
+  %p.well= @ticket.contenido
   %hr/
   = link_to "Crear Mensaje", new_ticket_ticket_message_path(@ticket), remote: true, class: "btn btn-info"
   %br/
@@ -28,4 +28,4 @@
             = link_to "<i class='fa fa-pencil-square-o'></i>".html_safe,                           |
               edit_ticket_ticket_message_path(@ticket, message), remote: true, class: "pull-right" |
       .panel-body
-        %p= message.content
+        %p= message.contenido
