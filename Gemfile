@@ -45,7 +45,9 @@ group :development do
 end
 
 group :test do
+  gem 'faker'
   gem 'webmock'
+  gem 'shoulda-matchers'
   #gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'selenium-webdriver'
 end

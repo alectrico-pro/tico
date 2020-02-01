@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(version: 20170906154715) do
   create_table "tickets", force: :cascade do |t|
     t.string "subject"
     t.integer "status", default: 0
-    t.integer "client_id"
-    t.integer "technician_id"
+    t.integer "cliente_id"
+    t.integer "tecnico_id"
+    t.integer "colaborador_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "content"

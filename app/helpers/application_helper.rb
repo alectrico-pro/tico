@@ -7,7 +7,7 @@ module ApplicationHelper
      end
   end
 
-  def panel_color(user, technician)
-    user == technician ? 'default' : 'primary'
+  def panel_color(user, tecnico)
+    user == tecnico ? 'default' : 'primary'
   end
 end

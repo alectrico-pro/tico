@@ -1,6 +1,16 @@
 es_Cl:
   activerecord:
-    attributes:
+    errors:
+      models:
+        ticket:
+          attributes:
+            tecnico:
+              required: "requerido"
+            colaborador: 
+              required: "requerido"
+            cliente:
+              required: "requerido"
+  attributes:
       gestion/criterio:
         type: "Tipo"
       electrico/presupuesto:

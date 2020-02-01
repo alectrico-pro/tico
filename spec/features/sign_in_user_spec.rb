@@ -8,11 +8,11 @@ RSpec.feature "Users sign-in" do
   scenario "with valid credentials" do
     visit "/"
 
-    click_link "Sign In"
+    click_link "Iniciar Sesión"
     fill_in "Email", with: @user.email
     fill_in "Password", with: @user.password
-    click_button "Log in"
+    click_button "Iniciar Sesión"
 
-    expect(page).to have_content("Signed in successfully.")
+    expect(page).to have_content("Ud ha abierto una sesión.")
   end
 end

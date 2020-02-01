@@ -5,6 +5,7 @@ class Ability
 
     if user.admin?
       can :manage, :all
+
     elsif user.tecnico?
 
       can :manage, Ticket
@@ -12,14 +13,17 @@ class Ability
       can :update, TicketMessage do |message|
         message.try(:tecnico) == user
       end
-    elsif user.client?
-      can :read, Ticket, :client => user
-      can :create, Ticket
-      can :update, Ticket,:client => user
 
-      can :read, TicketMessage, :client => user
+    elsif user.cliente? 
+
+      can :read,   Ticket, :cliente => user
+      can :create, Ticket
+      can :update, Ticket,:cliente=> user
+
+      can :read,   TicketMessage, :cliente => user
       can :create, TicketMessage
-      can :update, TicketMessage, :client => user
+      can :update, TicketMessage, :cliente => user
+
     end
     # Define abilities for the passed in user here. For example:
     #

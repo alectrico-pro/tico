@@ -4,12 +4,12 @@ RSpec.feature "Users signup" do
   scenario "with valid credentials" do
     visit "/"
 
-    click_link "Sign Up"
+    click_link "Crear Cuenta"
     fill_in "Email", with: "user@example.com"
     fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
-    click_button "Sign up"
+    fill_in :user_password_confirmation, with: "password"
+    click_button "Crear Cuenta"
 
-    expect(page).to have_content("You have signed up successfully.")
+    expect(page).to have_content("Se ha registrado éxitosamente en Versus.")
   end
 end

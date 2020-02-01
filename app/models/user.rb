@@ -6,9 +6,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  enum role: [:colaborador, :cliente, :tecnico, :admin]
+  enum role: [:cliente,:tecnico, :admin] #cliente debe ser el primero
 
-  has_many :tickets
+  has_many :tickets, :foreign_key => 'cliente_id'
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

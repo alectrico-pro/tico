@@ -11,7 +11,7 @@
     %strong Estado:
     = @ticket.status
   %p
-    Ténico: #{@ticket.technician.email}
+    Técnico: #{@ticket.tecnico.email}
   %p
     %strong Contenido:
   %p.well= @ticket.content
@@ -20,7 +20,7 @@
   %br/
   %br/
   - @ticket_messages.each do |message|
-    %div{:class => "panel panel-#{panel_color(message.user, @ticket.technician)}"}
+    %div{:class => "panel panel-#{panel_color(message.user, @ticket.tecnico)}"}
       .panel-heading
         %p
           Autor del Mensaje: #{message.user.email}

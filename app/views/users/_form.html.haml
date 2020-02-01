@@ -9,7 +9,7 @@
   .form-group
     = f.text_field :email, autofocus: true, class: 'form-control', placeholder: 'Ingrese email'
   .form-group
-    %label.control-label Role
+    %label.control-label Rol
     = f.select(:role, User.roles.keys)
   .form-group
     = f.password_field :password, class: 'form-control', placeholder: 'Deje en blanco si no quiere cambiar la password'

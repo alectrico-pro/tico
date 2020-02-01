@@ -4,11 +4,13 @@ RSpec.feature "Show Tickets List" do
   before do
     @admin = create(:user)
     @techie =  create(:user)
-    @techie.role = 'technician'
+    @techie.role = 'tecnico'
     @client1 = create(:user)
+    @client1.role = 'cliente'
     @client2 = create(:user)
-    @ticket1 = Ticket.create(subject: "New ticket", content: "NT content here", client_id: @client1.id, technician_id: @techie.id)
-    @ticket2 = Ticket.create(subject: "U2 New ticket", content: "U2 NT content here", client_id: @client2.id, technician_id: @techie.id)
+    @client2.role = 'cliente'
+    @ticket1 = Ticket.create(subject: "New ticket", content: "NT content here", cliente_id: @client1.id, tecnico_id: @techie.id)
+    @ticket2 = Ticket.create(subject: "U2 New ticket", content: "U2 NT content here", cliente_id: @client2.id, tecnico_id: @techie.id)
   end
 
   scenario "client can only see their tickets" do
@@ -16,18 +18,18 @@ RSpec.feature "Show Tickets List" do
 
     visit "/"
 
-    click_link "My Tickets"
+    click_link "Tickets"
 
     expect(page).to have_link(@ticket1.id)
     expect(page).to_not have_link(@ticket2.id)
   end
 
-  scenario "technician can see all tickets" do
+  scenario "tecnico can see all tickets" do
     login_as @techie
 
     visit "/"
 
-    click_link "My Tickets"
+    click_link "Tickets"
 
     expect(page).to have_link(@ticket1.id)
     expect(page).to have_link(@ticket2.id)
@@ -39,7 +41,7 @@ RSpec.feature "Show Tickets List" do
 
       visit "/"
 
-      click_link "My Tickets"
+      click_link "Tickets"
 
       expect(page).to have_link(@ticket1.id)
       expect(page).to have_link(@ticket2.id)

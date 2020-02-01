@@ -1,12 +1,16 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-#  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    #    @tickets = Ticket.all
-    @tickets = @tickets.tickets_open
+    if current_user.admin?
+      @tickets = Ticket.all 
+    elsif current_user.cliente?
+      #@tickets = current_user.tickets
+      @tickets = current_user.tickets
+    end
   end
 
   def new
@@ -18,17 +22,17 @@ class TicketsController < ApplicationController
   end
 
   def closed
-    @tickets = @tickets.tickets_closed
+    @tickets = @tickets.tickets_cerrado
   end
 
   def create
-    @ticket.client = current_user
-    @ticket.technician = User.get_technician[0]
+    @ticket.cliente = current_user
+    @ticket.tecnico = User.get_tecnico[0] #Escoge al primer técnico para la tarea
     if @ticket.save
       flash[:notice] = "El ticket fue éxitosamente creado!"
       redirect_to @ticket
     else
-      flash[:alert] = "No se pudo crear el ticket!"
+      flash[:alert] = "No se pudo crear el ticket! #{@ticket.errors.messages}"
       render :new
     end
   end
@@ -54,7 +58,7 @@ class TicketsController < ApplicationController
 
   private
     def ticket_params
-      params.require(:ticket).permit(:subject, :status, :content, :client_id, :technician_id)
+      params.require(:ticket).permit(:subject, :status, :content, :cliente_id, :tecnico_id, :colaborador_id)
     end
 
     def set_ticket
