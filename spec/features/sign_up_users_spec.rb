@@ -10,6 +10,6 @@ RSpec.feature "Users signup" do
     fill_in :user_password_confirmation, with: "password"
     click_button "Crear Cuenta"
 
-    expect(page).to have_content("Se ha registrado éxitosamente en Versus.")
+    expect(page).to have_content("Se ha registrado éxitosamente en Tico.")
   end
 end
