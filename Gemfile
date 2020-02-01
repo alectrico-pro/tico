@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+#gem 'devise', github: 'twalpole/devise', branch: 'rails5'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootswatch-rails'
@@ -47,8 +48,8 @@ end
 group :test do
   gem 'faker'
   gem 'webmock'
-  gem 'shoulda-matchers'
-  #gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+ # gem 'shoulda-matchers'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'selenium-webdriver'
 end
 
