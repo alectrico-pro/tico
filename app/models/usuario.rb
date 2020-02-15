@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class Usuario < ApplicationRecord
   before_save :set_first_user_admin
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
