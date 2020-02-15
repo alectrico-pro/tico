@@ -1,2 +1,2 @@
-class Usuario < OperacionBase
+class Usuario < GestionBase
 end
