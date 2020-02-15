@@ -1,2 +1,2 @@
-class Rendicion < ApplicationRecord
+class Rendicion < OperacionBase
 end
